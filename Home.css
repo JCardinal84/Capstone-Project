@@ -1,0 +1,72 @@
+﻿@Charset 'UTF-8';
+html{
+	background-color: #ddd
+}
+.nav {
+  overflow: hidden;
+  background-color: #333;
+  padding-top: 0px;
+}
+
+img.logo{
+	padding-left: 30px;
+	padding-right: 30px;
+	float: left;
+	width: 30px;
+	height: auto;
+	padding-top: 10px;
+}
+
+.nav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.nav a.active {
+  background-color: rgb(35, 67, 142);
+  color: white;
+}
+
+body {
+   font-family:Constantia;
+}
+h1, p, li{
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+.Account, .Token, .Create{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+li{
+	list-style-type: none;
+}
+h1{
+	font-family: Constantia;
+	font-weight: 200;
+}
+footer{
+	background-color: #333;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#footer{
+	color: #f2f2f2;
+}
+
+p{
+	line-height: 200%;
+	font-size: large;
+}
