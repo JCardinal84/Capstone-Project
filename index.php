@@ -15,7 +15,7 @@
 <?php
 	if (isset($_GET['pass_token'])){
 		$pass_token = $_GET['pass_token'];
-		$_SESSION['pass_token'] = $pass_token;
+		$_SESSION['account_passtoken'] = $pass_token;
 		resetPassword($pass_token);
 	}
 ?>

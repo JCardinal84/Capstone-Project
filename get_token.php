@@ -1,9 +1,3 @@
-<?php
-    session_start();
-	//$token = $_SESSION['token'];
-	require_once 'VerifyEmail.php'; 
-
-?>
 <!DOCTYPE html>
 <html lang="en-US" class="no-js no-svg">
 
@@ -13,12 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 		<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
-<title>Login &#8211; Canvas API</title>
+<title>Canvas API &#8211; Course Information</title>
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
-<link rel="alternate" type="application/rss+xml" title="Canvas API &raquo; Feed" href="../ws/wordpress/feed/" />
-<link rel="alternate" type="application/rss+xml" title="Canvas API &raquo; Comments Feed" href="../ws/wordpress/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Canvas API &raquo; Feed" />
+<link rel="alternate" type="application/rss+xml" title="Canvas API &raquo; Comments Feed" />
 		<script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/localhost\/ws\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7"}};
 			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -74,13 +68,13 @@ img.emoji {
 <script type='text/javascript' src='../ws/wordpress/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
 <script type='text/javascript' src='../ws/wordpress/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
 <script type='text/javascript' src='../ws/wordpress/wp-content/plugins/ultimate-member/assets/js/um-gdpr.min.js?ver=2.1.16' id='um-gdpr-js'></script>
-<link rel="https://api.w.org/" href="../ws/wordpress/wp-json/" /><link rel="alternate" type="application/json" href="../ws/wordpress/wp-json/wp/v2/pages/72" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../ws/wordpress/xmlrpc.php?rsd" />
+<link rel="https://api.w.org/" href="../ws/wordpress/wp-json/" /><link rel="alternate" type="application/json" href="../ws/wordpress/wp-json/wp/v2/pages/22" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../ws/wordpress/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../ws/wordpress/wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 5.7" />
-<link rel="canonical" href="../ws/wordpress/login/" />
-<link rel='shortlink' href='../ws/wordpress/?p=72' />
-<link rel="alternate" type="application/json+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Flogin%2F" />
-<link rel="alternate" type="text/xml+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Flogin%2F&#038;format=xml" />
+<link rel="canonical" href="../ws/wordpress/" />
+<link rel='shortlink' href='../ws/wordpress/' />
+<link rel="alternate" type="application/json+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2F&#038;format=xml" />
 		<style type="text/css">
 			.um_request_name {
 				display: none !important;
@@ -93,13 +87,13 @@ body.custom-background { background-color: #dddddd; }
 </head>
 
 
-<body class="page-template-default page page-id-72 custom-background wp-embed-responsive full-width-contain singular missing-post-thumbnail has-no-pagination">
+<body class="home page-template-default page page-id-22 custom-background wp-embed-responsive full-width-contain singular missing-post-thumbnail has-no-pagination">
 
 	 <a class="skip-link screen-reader-text" href="#content">Skip to the content</a>
 
 <div class="logo-box">
 
-	<h1>Canvas API</h1><p class="site-description">Course Information</p>
+	<a class="navbar-logo"><h1>Canvas API</h1></a><p class="site-description">Course Information</p>
 </div>
 
 <!-- Navigation Bar-->
@@ -108,24 +102,22 @@ body.custom-background { background-color: #dddddd; }
 	<div class="container">
 
 		<span class="logo-mobile">
-		<h1>Canvas API</h1><p class="site-description">Course Information</p>		</span>
-
-
-			
+		<a class="navbar-logo"><h1>Canvas API</h1></a><p class="site-description">Course Information</p>		</span>
 
 	</div>
 </header>
 <!-- End Navigation Bar-->
 
-<div style="margin-left: 200px;" id="google_translate_element"></div>
+<div id="google_translate_element"></div>
 
-<script type="text/javascript">
+<script style="margin-left: 200px;" type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 </script>
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 <section class="section">
 	<div id="content" class="container">
@@ -135,51 +127,34 @@ function googleTranslateElementInit() {
 				<div class="col-sm-8">
 
 					
-<article id="post-72" class="post post-72 page type-page status-publish hentry">
+<article id="post-22" class="post post-22 page type-page status-publish hentry">
 
 	<header class="entry-header">
-		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Reset Password</b></h2>	</header><!-- .entry-header -->
+		</header><!-- .entry-header -->
 
 	
 	<div class="blog-detail-description">
-		
-<div class="um um-login um-82">
-
-	<div class="um-form">
-
-		<form name="form" id="form" method="post" autocomplete="off" onsubmit="return validateNewPassword()" action="reset_password.php?<?php
-          echo SID; ?>">
-          
-			<p>Enter your new password:
-     			<input type="password" name="password" required/></p>
-     		<p>Confirm your new password:
-     			<input type="password" name="password2" required/></p>
-			<p><em>(Passwords are case-sensitive and 
-     			must be at least 7 characters long)</em></p>
-			<input type="reset" name="reset" 
-     			value="Clear" />
-			<input type="submit" name="reset_password" value="Reset Password" /><br />	
-		</form>
-		
-		<script type='text/javascript' src="../JS/validateNewPassword.js"></script>
-
-	</div>
-
-</div><style type="text/css">
-.um-82.um {
-	max-width: 450px;
-}</style>
+	
 
 
+<h1>How to Get Your Token</h1>
+		<p>First, you will need to login to Canvas, click "Account" on the left banner, and then click "Settings."</p>
+		<img class="Account" src="../Images/Token_Screenshots/Account_Screenshot.png" /><br />
+		<br /><p>In the "Settings" page, locate the section called "Approved Integrations" and click on the "+ New Access Token" button.</p>
+		<img class="Token" src="../Images/Token_Screenshots/New_Token_Button3.png" /><br />
+		<br /><p>A Window should pop up allowing you to name the purpose of the token, and when you wish for the token to expire.
+		You can name the purpose anything you would like, and you can have the token never expire by leaving the "Expires" field blank.
+		</p>
+		<img class="Create" src="../Images/Token_Screenshots/Create_Token.png" /><br />
+		<br /><p style="color: red">**Make sure that when you enter your token on the login screen that there are no spaces at the end otherwise it will not work.</p>
 
 
-<p></p>
-	</div><!-- .entry-content -->
+</div><!-- .entry-content -->
 
 
 	
 
-</article><!-- #post-72 -->
+</article><!-- #post-22 -->
 
 				</div>
 				<!-- Content end-->

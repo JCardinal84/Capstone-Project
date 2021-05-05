@@ -1,7 +1,7 @@
 <?php
     session_start();
-	//$token = $_SESSION['token'];
-	require_once 'VerifyEmail.php'; 
+    require_once('VerifyCredentials.php');
+	//$token = $_SESSION['token']; 
 
 ?>
 <!DOCTYPE html>
@@ -99,7 +99,7 @@ body.custom-background { background-color: #dddddd; }
 
 <div class="logo-box">
 
-	<h1>Canvas API</h1><p class="site-description">Course Information</p>
+	<a class="navbar-logo"><h1>Canvas API</h1></a><p class="site-description">Course Information</p>
 </div>
 
 <!-- Navigation Bar-->
@@ -108,7 +108,7 @@ body.custom-background { background-color: #dddddd; }
 	<div class="container">
 
 		<span class="logo-mobile">
-		<h1>Canvas API</h1><p class="site-description">Course Information</p>		</span>
+		<a class="navbar-logo"><h1>Canvas API</h1></a><p class="site-description">Course Information</p>		</span>
 
 
 			
@@ -127,6 +127,7 @@ function googleTranslateElementInit() {
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
 <section class="section">
 	<div id="content" class="container">
 		<div class="row">
@@ -138,7 +139,7 @@ function googleTranslateElementInit() {
 <article id="post-72" class="post post-72 page type-page status-publish hentry">
 
 	<header class="entry-header">
-		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Reset Password</b></h2>	</header><!-- .entry-header -->
+		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Re-enter Credentials</b></h2>	</header><!-- .entry-header -->
 
 	
 	<div class="blog-detail-description">
@@ -147,22 +148,28 @@ function googleTranslateElementInit() {
 
 	<div class="um-form">
 
-		<form name="form" id="form" method="post" autocomplete="off" onsubmit="return validateNewPassword()" action="reset_password.php?<?php
-          echo SID; ?>">
-          
-			<p>Enter your new password:
+		<form method="post" autocomplete="off"action="">
+			
+			<p>Enter your email address: 
+     			<input type="text" name="email" required/></p>
+			<p>Enter your password:
      			<input type="password" name="password" required/></p>
-     		<p>Confirm your new password:
-     			<input type="password" name="password2" required/></p>
 			<p><em>(Passwords are case-sensitive and 
-     			must be at least 7 characters long)</em></p>
+     			must be at least 6 characters long)</em></p>
 			<input type="reset" name="reset" 
      			value="Clear" />
-			<input type="submit" name="reset_password" value="Reset Password" /><br />	
+			<input type="submit" name="resubmit" value="Submit" /><br />
+			<a href="forgotpassword.php"><em>Forgot your password?</em></a>
+	
 		</form>
-		
-		<script type='text/javascript' src="../JS/validateNewPassword.js"></script>
-
+		<?php
+			if(isset($_GET['Wrong'])){
+				echo "<script> alert('Your email or password is incorrect.') </script>";
+			}
+			else {
+				echo "<script> alert('Please re-enter your credentials for validation.') </script>";
+			}
+		?>
 	</div>
 
 </div><style type="text/css">
@@ -205,9 +212,9 @@ function googleTranslateElementInit() {
 			<p class="copyright">
 
 				
-									<a class="site-name" rel="home">Canvas API</a>,
+									<a class="site-name" href="../ws/wordpress/" rel="home">Canvas API</a>,
 				
-				<a class="imprint">
+				<a href="https://wordpress.org/" class="imprint">
 					Proudly powered by WordPress.				</a>
 
 			</p><!-- .site-info -->

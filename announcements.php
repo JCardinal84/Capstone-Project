@@ -1,8 +1,8 @@
 <?php
-    session_start();
-	//$token = $_SESSION['token'];
-	require_once 'VerifyEmail.php'; 
-
+	session_start();
+	if (!(isset($_SESSION['token']) && $_SESSION['token'] != '')) {
+		header('Location: login.php');
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="no-js no-svg">
@@ -13,7 +13,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 		<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
-<title>Login &#8211; Canvas API</title>
+		<script src="../JS/jquery.min.js"> </script>
+<title>Announcements &#8211; Canvas API</title>
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
@@ -74,13 +75,13 @@ img.emoji {
 <script type='text/javascript' src='../ws/wordpress/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
 <script type='text/javascript' src='../ws/wordpress/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
 <script type='text/javascript' src='../ws/wordpress/wp-content/plugins/ultimate-member/assets/js/um-gdpr.min.js?ver=2.1.16' id='um-gdpr-js'></script>
-<link rel="https://api.w.org/" href="../ws/wordpress/wp-json/" /><link rel="alternate" type="application/json" href="../ws/wordpress/wp-json/wp/v2/pages/72" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../ws/wordpress/xmlrpc.php?rsd" />
+<link rel="https://api.w.org/" href="../ws/wordpress/wp-json/" /><link rel="alternate" type="application/json" href="../ws/wordpress/wp-json/wp/v2/pages/20" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../ws/wordpress/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../ws/wordpress/wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 5.7" />
-<link rel="canonical" href="../ws/wordpress/login/" />
-<link rel='shortlink' href='../ws/wordpress/?p=72' />
-<link rel="alternate" type="application/json+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Flogin%2F" />
-<link rel="alternate" type="text/xml+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Flogin%2F&#038;format=xml" />
+<link rel="canonical" href="../ws/wordpress/announcements/" />
+<link rel='shortlink' href='../ws/wordpress/?p=20' />
+<link rel="alternate" type="application/json+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Fannouncements%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Fannouncements%2F&#038;format=xml" />
 		<style type="text/css">
 			.um_request_name {
 				display: none !important;
@@ -93,7 +94,7 @@ body.custom-background { background-color: #dddddd; }
 </head>
 
 
-<body class="page-template-default page page-id-72 custom-background wp-embed-responsive full-width-contain singular missing-post-thumbnail has-no-pagination">
+<body class="page-template-default page page-id-20 custom-background wp-embed-responsive full-width-contain singular missing-post-thumbnail has-no-pagination">
 
 	 <a class="skip-link screen-reader-text" href="#content">Skip to the content</a>
 
@@ -111,7 +112,24 @@ body.custom-background { background-color: #dddddd; }
 		<h1>Canvas API</h1><p class="site-description">Course Information</p>		</span>
 
 
-			
+			<!-- Navigation Menu-->
+				<button id="nav-toggle" class="nav-toggle"><span class="mdi mdi-menu"></span></button>
+
+				<nav class="nav-collapse">
+					<ul id="primary-menu" class="menu-items"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39 nav-item"><a title="Home" href="home.php" class="nav-link">Home</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40 nav-item"><a title="Courses" href="courses.php" class="nav-link">Courses</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41 nav-item"><a title="Assignments" href="assignments.php" class="nav-link">Assignments</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42 nav-item"><a title="Quizzes/Tests" href="QuizTest.php" class="nav-link">Quizzes/Tests</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-20 current_page_item active menu-item-47 nav-item"><a title="Announcements" href="announcements.php/" class="nav-link">Announcements</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-101" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children has-submenu dropdown menu-item-101 nav-item"><a title="Profile" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="has-dropdown" id="menu-item-dropdown-101">Profile</a>
+ <ul class="sub-menu" aria-labelledby="menu-item-dropdown-101" role="menu">
+ 	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-102 nav-item"><a title="Change API Token" href="reenter_credentials.php">Change API Token</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-102 nav-item"><a title="Sign Out" href="login.php">Sign Out</a></li>
+</ul>
+</li>
+</ul>			</nav>
+			<!-- End navigation menu-->
+
 
 	</div>
 </header>
@@ -127,6 +145,7 @@ function googleTranslateElementInit() {
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
 <section class="section">
 	<div id="content" class="container">
 		<div class="row">
@@ -135,41 +154,171 @@ function googleTranslateElementInit() {
 				<div class="col-sm-8">
 
 					
-<article id="post-72" class="post post-72 page type-page status-publish hentry">
+<article id="post-20" class="post post-20 page type-page status-publish hentry">
 
 	<header class="entry-header">
-		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Reset Password</b></h2>	</header><!-- .entry-header -->
+		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Announcements</b></h2>	</header><!-- .entry-header -->
 
 	
 	<div class="blog-detail-description">
 		
-<div class="um um-login um-82">
+<div id="filters">
 
-	<div class="um-form">
+<label for="courses">Filter By Courses:  </label>
+<select name="Announcements" class="Announcements" id="Announcements">
+<option value="" selected="" disabled="" hidden="">Select Course</option>
+</select><br>
 
-		<form name="form" id="form" method="post" autocomplete="off" onsubmit="return validateNewPassword()" action="reset_password.php?<?php
-          echo SID; ?>">
-          
-			<p>Enter your new password:
-     			<input type="password" name="password" required/></p>
-     		<p>Confirm your new password:
-     			<input type="password" name="password2" required/></p>
-			<p><em>(Passwords are case-sensitive and 
-     			must be at least 7 characters long)</em></p>
-			<input type="reset" name="reset" 
-     			value="Clear" />
-			<input type="submit" name="reset_password" value="Reset Password" /><br />	
-		</form>
+<label for="date1">Show Announcements Between:  </label>
+<input type="date" name="date1" id="date1">
+<label for="date2">and</label>
+<input type="date" name="date2" id="date2">
+</div>
+
+<!-- --------------------------------------------LINK TO JAVASCRIPT TO POPULATE COURSES-------------------------------------------------------------------------------------------------- -->
+		<script type="text/javascript">
+				const userToken = "<?php echo $_SESSION['token']; ?>";
+				const canvasURL = "http://52.90.205.159:8646/api/v1/courses?enrollment_state=active";  				
+				
+				function getCoursesAnnouncements(){
+					jQuery.ajax({
+	    				type: 'GET',
+	    				url: canvasURL,
+	       				dataType: 'text',
+	       				changeOrigin: true,
+	    				headers: {
+	    					"proxy": "lcp --proxyUrl https://www.canvas.instructure.com",
+	    					'Authorization': 'Bearer ' + userToken,
+	              			'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE',
+	              			'Access-Control-Allow-Headers': 'x-requested-with',
+	              			'Content-Type': 'text/plain',
+	              			
+	          			},			
+	    				success: function(data) {							
+							var courses = JSON.parse(data);
+							for (var i = 0; i < courses.length; i++) {
+	    						var courseNames = courses[i]['name'];
+								var courseIDs = courses[i]['id'];    						
 		
-		<script type='text/javascript' src="../JS/validateNewPassword.js"></script>
+	    						$("#Announcements").append('<option value="' + courseIDs + '">' + courseNames +  '</option>');
+	    					}          				
+	       					var selectedID = $('#Announcements option:selected').data('value');
+							var courseOption = document.getElementById("Announcements");
+							
+							courseOption.addEventListener("change", function() {
+								CourseID = $("#Announcements option:selected").val();
+								const announcementURL = "http://52.90.205.159:8646/api/v1/announcements?context_codes[]=course_" + CourseID +"&start_date=1970-01-01&end_date=2100-01-01";
+								var date1 = Date.parse('01 Jan 1970 00:00:00 GMT');
+								var date2 = Date.parse('01 Jan 20000 00:00:00 GMT');
+								getAnnouncements(announcementURL, CourseID, date1, date2);
+								$("#AnnouncementData").html("");
+							});
+							
+							var date1Raw = document.getElementById("date1");
+							date1Raw.addEventListener("change", function() {
+								CourseID = $("#Announcements option:selected").val();
+								const announcementURL = "http://52.90.205.159:8646/api/v1/announcements?context_codes[]=course_" + CourseID +"&start_date=1970-01-01&end_date=2100-01-01";
+							
+								var date1value = document.getElementById("date1").value;
+								var first_date = Date.parse(date1value) + 18000000;
+									
+								var date2value = document.getElementById("date2").value;
+								var second_date = Date.parse(date2value) + 18000000;
 
-	</div>
+								if (isNaN(first_date)){
+						    		first_date = 0;
+						    	}
+						    		
+						    	if (isNaN(second_date)){
+						    		second_date = 863000000000000;
+						    	}
+						    	getAnnouncements(announcementURL, CourseID, date1, date2);
+								$("#AnnouncementData").html("");
+							});
 
-</div><style type="text/css">
-.um-82.um {
-	max-width: 450px;
-}</style>
+    						var date2Raw = document.getElementById("date2");
+							date2Raw.addEventListener("change", function() {
+								CourseID = $("#Announcements option:selected").val();
+								const announcementURL = "http://52.90.205.159:8646/api/v1/announcements?context_codes[]=course_" + CourseID +"&start_date=1970-01-01&end_date=2100-01-01";
+							
+								var date1value = document.getElementById("date1").value;
+								var first_date = Date.parse(date1value) + 18000000;
+									
+								var date2value = document.getElementById("date2").value;
+								var second_date = Date.parse(date2value) + 18000000;
+									
+								if (isNaN(date1)){
+						    		date1 = 0;
+						    	}
+						    		
+						    	if (isNaN(date2)){
+						    		date2 = 863000000000000;
+						    	}
+						    	getAnnouncements(announcementURL, CourseID, date1, date2);
+								$("#AnnouncementData").html("");
+							});
+								
+							//$("#test").append('<p>' +selectedID+ '</p>');	
+			    			function getAnnouncements(announcementURL, CourseID, date1, date2){   					
+			    				jQuery.ajax({
+					    			type: 'GET',
+					    			url: announcementURL,
+					       			dataType: 'text',
+					       			changeOrigin: true,
+					    			headers: {
+					    				"proxy": "lcp --proxyUrl https://www.canvas.instructure.com",
+					    				'Authorization': 'Bearer ' + userToken,
+					           			'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE',
+					            		'Access-Control-Allow-Headers': 'x-requested-with',
+					              		'Content-Type': 'text/plain',
+					              			
+					          		},			
+					    			success: function(AnnouncementData){
+					    				var dataForAnnouncements = JSON.parse(AnnouncementData);
+					    				
+					    				if (dataForAnnouncements.length === 0) {
+					    					alert('This course does not have any announcements at the moment, please check again later.');
+					    				}
+					    					
+										for (var j = 0; j < dataForAnnouncements.length; j++) {
+					    					var announcementName = dataForAnnouncements[j]['title'];
+					    					var announcementContent = dataForAnnouncements[j]['message'];
+					    					var announcementID = JSON.stringify(dataForAnnouncements[j]['id']);		    						
+											var node = document.createTextNode(announcementName);
+											var link = "https://elearning.salemstate.edu/courses/" + CourseID + "/discussion_topics/" + announcementID;
+											var announceDateRaw = dataForAnnouncements[j]['created_at'];
+											var announceDate = new Date(announceDateRaw);
+											var formatAssignDate = Date.parse(announceDate);
+											if (formatAssignDate >= date1 && formatAssignDate <= date2){
+												$("#AnnouncementData").append('<p><a href="' + link + '" target="_blank" class="options"'+'>' + announcementName + '</a></p>');
+												$("#AnnouncementData").append(announcementContent);
+												$("#AnnouncementData").append('<p>Date Announced: '+announceDate.toLocaleString('en-US', { timeZone: 'America/New_York' })+'</p><br />');
+											}	
+	
+					    				}
+					    					
+					    			},
+					    			error: function() { alert('This course does not have any announcements at the moment, please check again later.'); }
+		
+					    			});	
+								}				
+			       				},
+			    				error: function() { alert('This course does not have any announcements at the moment, please check again later.'); }
+							});	
+						
+					}	
+					
+					getCoursesAnnouncements();
+								
+	    	</script>
 
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+	
+	<br /><br /><div id="AnnouncementData"></div>
+
+
+<p></p>
 
 
 
@@ -179,7 +328,7 @@ function googleTranslateElementInit() {
 
 	
 
-</article><!-- #post-72 -->
+</article><!-- #post-20 -->
 
 				</div>
 				<!-- Content end-->
@@ -193,7 +342,7 @@ function googleTranslateElementInit() {
 
 
 
-<footer style="position: fixed; bottom: 0; width: 100%;">
+<footer style="bottom: 0; width: 100%;">
 
 <!-- copy-wrapper -->
 	<div class="copy-wrapper">

@@ -1,8 +1,7 @@
 <?php
     session_start();
-	//$token = $_SESSION['token'];
-	require_once 'VerifyEmail.php'; 
-
+	/*shell_exec('npm install no-cors-proxy -g');
+	shell_exec('no-cors-proxy -p 8000 -t https://elearning.salemstate.edu -h 52.90.205.159 &');*/
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="no-js no-svg">
@@ -19,10 +18,10 @@
 <link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="Canvas API &raquo; Feed" href="../ws/wordpress/feed/" />
 <link rel="alternate" type="application/rss+xml" title="Canvas API &raquo; Comments Feed" href="../ws/wordpress/comments/feed/" />
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/localhost\/ws\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7"}};
 			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
-		</script>
+		</script>-->
 		<style type="text/css">
 img.wp-smiley,
 img.emoji {
@@ -119,13 +118,14 @@ body.custom-background { background-color: #dddddd; }
 
 <div style="margin-left: 200px;" id="google_translate_element"></div>
 
-<script type="text/javascript">
+<script style="margin-left: 200px;" type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 </script>
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 <section class="section">
 	<div id="content" class="container">
@@ -138,7 +138,7 @@ function googleTranslateElementInit() {
 <article id="post-72" class="post post-72 page type-page status-publish hentry">
 
 	<header class="entry-header">
-		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Reset Password</b></h2>	</header><!-- .entry-header -->
+		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Login</b></h2>	</header><!-- .entry-header -->
 
 	
 	<div class="blog-detail-description">
@@ -147,22 +147,34 @@ function googleTranslateElementInit() {
 
 	<div class="um-form">
 
-		<form name="form" id="form" method="post" autocomplete="off" onsubmit="return validateNewPassword()" action="reset_password.php?<?php
+		<form method="post" autocomplete="off"action="VerifyLogin.php?<?php
           echo SID; ?>">
-          
-			<p>Enter your new password:
-     			<input type="password" name="password" required/></p>
-     		<p>Confirm your new password:
-     			<input type="password" name="password2" required/></p>
-			<p><em>(Passwords are case-sensitive and 
-     			must be at least 7 characters long)</em></p>
-			<input type="reset" name="reset" 
-     			value="Clear" />
-			<input type="submit" name="reset_password" value="Reset Password" /><br />	
-		</form>
-		
-		<script type='text/javascript' src="../JS/validateNewPassword.js"></script>
 
+			<p>Enter your email address: 
+     			<input type="text" name="email" required/></p>
+			<p>Enter your password:
+     			<input type="password" name="password" required/></p>
+				<input type="reset" name="reset" 
+     			value="Clear" />
+			<input type="submit" name="login" value="Log In" /><br /><br />
+			<a href="verifyregister.php"><em>Don't have an account?</em></a><br />
+			<a href="forgotpassword.php"><em>Forgot your password?</em></a>
+	
+		</form>
+		<?php
+			if(isset($_GET['Wrong'])){
+				echo "<script> alert('Your email or password is incorrect.') </script>";
+			}
+			
+			if(isset($_GET['pass_reset'])){
+				echo "<script> alert('Success, please re-login.') </script>";
+			}
+
+			
+			if(isset($_GET['token_reset'])){
+				echo "<script> alert('Success, please re-login.') </script>";
+			}
+		?>
 	</div>
 
 </div><style type="text/css">

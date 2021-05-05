@@ -13,10 +13,11 @@ session_start();
 <h2>Account Login</h2>
 <?php
 	$errors = 0;
+	$token = "";
 	try{
-		$connection_string="mysql:host=localhost;dbname=canvasdb";
-		$db_user = "db_php_user";
-		$db_pwd = "EnvScZNJBqx7PWNn";
+		$connection_string="mysql:host=localhost:3306;dbname=db_jcardinal_I505";
+		$db_user = "jcardinal_I505";
+		$db_pwd = "jpI@2021";
 	
 				
 		$conn_pdo = new PDO($connection_string, $db_user, $db_pwd);
@@ -26,13 +27,23 @@ session_start();
 		$email = $_POST['email'];
 		$pwd = $_POST['password'];
 		$pwd_md5 = md5($pwd);
-		$SQLQ2 = "select email, password from account where email='".$email."'and password ='".$pwd_md5."'";		
+		$SQLQ2 = "select account_email, account_password from account where account_email='".$email."'and account_password ='".$pwd_md5."'";		
 		$ps2 = $conn_pdo -> prepare($SQLQ2);
 		$count = $ps2->execute();
 		$row = $ps2->fetchALL();
-			
+		
+		$SQLToken = "select account_token from account where account_email = '".$email."' limit 1";
+		$ps3 = $conn_pdo -> prepare($SQLToken);
+		$count2 = $ps3->execute();
+		$row2 = $ps3->fetch();
+		$token = $row2['account_token'];
+	
+		$_SESSION['token'] = $token;
+		//echo $_SESSION['token2'];	
+		//var_dump($token);
+		//die();		
 		if(sizeof($row)==1){
-			header("location: ../HTML/home.html");
+			header("location: home.php");
 		}
 		else{
 			header("location: login.php?Wrong");
@@ -41,11 +52,6 @@ session_start();
 	catch (PDOException $e){
 		die ($e -> getMessage());		
 	}
-	
-	//if ($errors > 0) {
-	 //    echo "<p>Please use your browser's BACK button to return " . 
-	 //         " to the form and fix the errors indicated.</p>\n";
-	//}
 
 ?>
 </body>

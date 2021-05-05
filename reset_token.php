@@ -1,7 +1,7 @@
 <?php
     session_start();
 	//$token = $_SESSION['token'];
-	require_once 'VerifyEmail.php'; 
+	require_once 'VerifyToken.php'; 
 
 ?>
 <!DOCTYPE html>
@@ -99,7 +99,7 @@ body.custom-background { background-color: #dddddd; }
 
 <div class="logo-box">
 
-	<h1>Canvas API</h1><p class="site-description">Course Information</p>
+	<a class="navbar-logo"><h1>Canvas API</h1></a><p class="site-description">Course Information</p>
 </div>
 
 <!-- Navigation Bar-->
@@ -108,7 +108,7 @@ body.custom-background { background-color: #dddddd; }
 	<div class="container">
 
 		<span class="logo-mobile">
-		<h1>Canvas API</h1><p class="site-description">Course Information</p>		</span>
+		<a class="navbar-logo"><h1>Canvas API</h1></a><p class="site-description">Course Information</p>		</span>
 
 
 			
@@ -138,7 +138,7 @@ function googleTranslateElementInit() {
 <article id="post-72" class="post post-72 page type-page status-publish hentry">
 
 	<header class="entry-header">
-		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Reset Password</b></h2>	</header><!-- .entry-header -->
+		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Reset Token</b></h2>	</header><!-- .entry-header -->
 
 	
 	<div class="blog-detail-description">
@@ -147,21 +147,15 @@ function googleTranslateElementInit() {
 
 	<div class="um-form">
 
-		<form name="form" id="form" method="post" autocomplete="off" onsubmit="return validateNewPassword()" action="reset_password.php?<?php
+		<form name="form" id="form" method="post" autocomplete="off" action="reset_token.php?<?php
           echo SID; ?>">
           
-			<p>Enter your new password:
-     			<input type="password" name="password" required/></p>
-     		<p>Confirm your new password:
-     			<input type="password" name="password2" required/></p>
-			<p><em>(Passwords are case-sensitive and 
-     			must be at least 7 characters long)</em></p>
+			<p>Enter your new token:
+     			<input type="text" name="token" required/></p>
 			<input type="reset" name="reset" 
      			value="Clear" />
-			<input type="submit" name="reset_password" value="Reset Password" /><br />	
+			<input type="submit" name="reset_token" value="Reset Token" /><br />	
 		</form>
-		
-		<script type='text/javascript' src="../JS/validateNewPassword.js"></script>
 
 	</div>
 
@@ -189,7 +183,7 @@ function googleTranslateElementInit() {
 
 		</div>
 	</div> <!-- end container -->
-</section>
+	</section>
 
 
 

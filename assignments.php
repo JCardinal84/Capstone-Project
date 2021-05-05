@@ -1,8 +1,8 @@
 <?php
-    session_start();
-	//$token = $_SESSION['token'];
-	require_once 'VerifyEmail.php'; 
-
+	session_start();
+	if (!(isset($_SESSION['token']) && $_SESSION['token'] != '')) {
+		header('Location: login.php');
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="no-js no-svg">
@@ -13,12 +13,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 		<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
-<title>Login &#8211; Canvas API</title>
+		<script src="../JS/jquery.min.js"> </script>
+<title>Assignments &#8211; Canvas API</title>
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="Canvas API &raquo; Feed" href="../ws/wordpress/feed/" />
-<link rel="alternate" type="application/rss+xml" title="Canvas API &raquo; Comments Feed" href="../ws/wordpress/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" titlefo="Canvas API &raquo; Comments Feed" href="../ws/wordpress/comments/feed/" />
 		<script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/localhost\/ws\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7"}};
 			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -51,6 +52,7 @@ img.emoji {
 <link rel='stylesheet' id='godhuli-main-styles-css'  href='../ws/wordpress/wp-content/themes/godhuli/css/main.css?ver=1.0.0' type='text/css' media='all' />
 <link rel='stylesheet' id='godhuli-main-styles-inline-css' href='../CSS/wordpress.css' type='text/css' media='all' />
 
+
 <!--[if lt IE 9]>
 <link rel='stylesheet' id='godhuli-ie8-css'  href='../ws/wordpress/wp-content/themes/godhuli/css/ie8.css?ver=1.0' type='text/css' media='all' />
 <![endif]-->
@@ -74,13 +76,13 @@ img.emoji {
 <script type='text/javascript' src='../ws/wordpress/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
 <script type='text/javascript' src='../ws/wordpress/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
 <script type='text/javascript' src='../ws/wordpress/wp-content/plugins/ultimate-member/assets/js/um-gdpr.min.js?ver=2.1.16' id='um-gdpr-js'></script>
-<link rel="https://api.w.org/" href="../ws/wordpress/wp-json/" /><link rel="alternate" type="application/json" href="../ws/wordpress/wp-json/wp/v2/pages/72" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../ws/wordpress/xmlrpc.php?rsd" />
+<link rel="https://api.w.org/" href="../ws/wordpress/wp-json/" /><link rel="alternate" type="application/json" href="../ws/wordpress/wp-json/wp/v2/pages/18" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../ws/wordpress/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../ws/wordpress/wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 5.7" />
-<link rel="canonical" href="../ws/wordpress/login/" />
-<link rel='shortlink' href='../ws/wordpress/?p=72' />
-<link rel="alternate" type="application/json+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Flogin%2F" />
-<link rel="alternate" type="text/xml+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Flogin%2F&#038;format=xml" />
+<link rel="canonical" href="../ws/wordpress/blog/" />
+<link rel='shortlink' href='../ws/wordpress/?p=18' />
+<link rel="alternate" type="application/json+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Fblog%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../ws/wordpress/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fws%2Fwordpress%2Fblog%2F&#038;format=xml" />
 		<style type="text/css">
 			.um_request_name {
 				display: none !important;
@@ -93,13 +95,13 @@ body.custom-background { background-color: #dddddd; }
 </head>
 
 
-<body class="page-template-default page page-id-72 custom-background wp-embed-responsive full-width-contain singular missing-post-thumbnail has-no-pagination">
+<body class="page-template-default page page-id-18 custom-background wp-embed-responsive full-width-contain singular missing-post-thumbnail has-no-pagination">
 
 	 <a class="skip-link screen-reader-text" href="#content">Skip to the content</a>
 
 <div class="logo-box">
 
-	<h1>Canvas API</h1><p class="site-description">Course Information</p>
+	<a class="navbar-logo"><h1>Canvas API</h1></a><p class="site-description">Course Information</p>
 </div>
 
 <!-- Navigation Bar-->
@@ -108,10 +110,27 @@ body.custom-background { background-color: #dddddd; }
 	<div class="container">
 
 		<span class="logo-mobile">
-		<h1>Canvas API</h1><p class="site-description">Course Information</p>		</span>
+		<a class="navbar-logo"><h1>Canvas API</h1></a><p class="site-description">Course Information</p>		</span>
 
 
-			
+			<!-- Navigation Menu-->
+				<button id="nav-toggle" class="nav-toggle"><span class="mdi mdi-menu"></span></button>
+
+				<nav class="nav-collapse">
+					<ul id="primary-menu" class="menu-items"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39 nav-item"><a title="Home" href="home.php" class="nav-link">Home</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40 nav-item"><a title="Courses" href="courses.php" class="nav-link">Courses</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-18 current_page_item active menu-item-41 nav-item"><a title="Assignments" href="assignments.php" class="nav-link">Assignments</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42 nav-item"><a title="Quizzes/Tests" href="QuizTest.php" class="nav-link">Quizzes/Tests</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47 nav-item"><a title="Announcements" href="announcements.php" class="nav-link">Announcements</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-101" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children has-submenu dropdown menu-item-101 nav-item"><a title="Profile" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="has-dropdown" id="menu-item-dropdown-101">Profile</a>
+ <ul class="sub-menu" aria-labelledby="menu-item-dropdown-101" role="menu">
+ 	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-102 nav-item"><a title="Change API Token" href="reenter_credentials.php">Change API Token</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-102 nav-item"><a title="Sign Out" href="login.php">Sign Out</a></li>
+</ul>
+</li>
+</ul>				</nav>
+			<!-- End navigation menu-->
+
 
 	</div>
 </header>
@@ -127,6 +146,7 @@ function googleTranslateElementInit() {
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
 <section class="section">
 	<div id="content" class="container">
 		<div class="row">
@@ -135,51 +155,202 @@ function googleTranslateElementInit() {
 				<div class="col-sm-8">
 
 					
-<article id="post-72" class="post post-72 page type-page status-publish hentry">
+<article id="post-18" class="post post-18 page type-page status-publish hentry">
 
 	<header class="entry-header">
-		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Reset Password</b></h2>	</header><!-- .entry-header -->
+		<h2 class="text-left mt-0 mb-4 text-uppercase"><b>Assignments</b></h2>	</header><!-- .entry-header -->
 
 	
 	<div class="blog-detail-description">
 		
-<div class="um um-login um-82">
+<div id="filters">
 
-	<div class="um-form">
+<label for="courses">Filter By Courses:  </label>
+<select name="Assignments" class="Assignments" id="Assignments">
+<option value="" selected="" disabled="" hidden="">Select Course</option>
+</select><br>
 
-		<form name="form" id="form" method="post" autocomplete="off" onsubmit="return validateNewPassword()" action="reset_password.php?<?php
-          echo SID; ?>">
-          
-			<p>Enter your new password:
-     			<input type="password" name="password" required/></p>
-     		<p>Confirm your new password:
-     			<input type="password" name="password2" required/></p>
-			<p><em>(Passwords are case-sensitive and 
-     			must be at least 7 characters long)</em></p>
-			<input type="reset" name="reset" 
-     			value="Clear" />
-			<input type="submit" name="reset_password" value="Reset Password" /><br />	
-		</form>
-		
-		<script type='text/javascript' src="../JS/validateNewPassword.js"></script>
-
-	</div>
-
-</div><style type="text/css">
-.um-82.um {
-	max-width: 450px;
-}</style>
-
-
-
-
-<p></p>
+<label for="date1">Show Assignments Between:  </label>
+<input type="date" name="date1" id="date1">
+<label for="date2">and</label>
+<input type="date" name="date2" id="date2">
+</div>
 	</div><!-- .entry-content -->
+<!-- --------------------------------------------LINK TO JAVASCRIPT TO POPULATE COURSES-------------------------------------------------------------------------------------------------- -->
+	<script type="text/javascript">
+				
+				const userToken = "<?php echo $_SESSION['token']; ?>";
+				const canvasURL = "http://52.90.205.159:8646/api/v1/courses?enrollment_state=active";  				
+				
+				var CourseID;
+				var CourseID2;
+				function getCourses(){				
+					jQuery.ajax({
+	    				type: 'GET',
+	    				url: canvasURL,
+	       				dataType: 'text',
+	       				changeOrigin: true,
+	    				headers: {
+	    					"proxy": "lcp --proxyUrl https://www.canvas.instructure.com",
+	    					'Authorization': 'Bearer ' + userToken,
+	              			'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE',
+	              			'Access-Control-Allow-Headers': 'x-requested-with',
+	              			'Content-Type': 'text/plain',
+	              			
+	          			},			
+	    				success: function(data) {							
+							var courses = JSON.parse(data);
+							for (var i = 0; i < courses.length; i++) {
+	    						var courseNames = courses[i]['name'];
+								var courseIDs = courses[i]['id'];    						
+		
+	    						$("#Assignments").append('<option value="' + courseIDs + '">' + courseNames +  '</option>');
+	    					}
+							var courseOption = document.getElementById("Assignments");
+						
+							//Event listener for the Course Option select tag. This will call the getAssignments function everytime a course is selected from the dropdown.
+							courseOption.addEventListener("change", function() {
+								CourseID = $("#Assignments option:selected").val();
+								const assignmentURL = "http://52.90.205.159:8646/api/v1/courses/" + CourseID + "/assignment_groups?include[]=assignments"; 
+								var date1 = Date.parse('01 Jan 1970 00:00:00 GMT');
+								var date2 = Date.parse('01 Jan 20000 00:00:00 GMT');
+								getAssignments(assignmentURL, CourseID, date1, date2);
+								$("#test").html("");
+							});
+							
+							
+							//This will filter the assignments by due date using which first date is selected.			
+							var date1Raw = document.getElementById("date1");
+							date1Raw.addEventListener("change", function() {
+								CourseID = $("#Assignments option:selected").val();
+								const assignmentURL = "http://52.90.205.159:8646/api/v1/courses/" + CourseID + "/assignment_groups?include[]=assignments"; 
+							
+								var date1value = document.getElementById("date1").value;
+								var first_date = Date.parse(date1value) + 18000000;
+									
+								var date2value = document.getElementById("date2").value;
+								var second_date = Date.parse(date2value) + 104399000;
 
+								if (isNaN(first_date)){
+						    		first_date = 0;
+						    	}
+						    		
+						    	if (isNaN(second_date)){
+						    		second_date = 863000000000000;
+						    	}
+						    	getAssignments(assignmentURL, CourseID, first_date, second_date);
+								$("#test").html("");
+							});
 
+    						var date2Raw = document.getElementById("date2");
+							date2Raw.addEventListener("change", function() {
+								CourseID = $("#Assignments option:selected").val();
+								const assignmentURL = "http://52.90.205.159:8646/api/v1/courses/" + CourseID + "/assignment_groups?include[]=assignments"; 
+
+								var date1value = document.getElementById("date1").value;
+								var first_date = Date.parse(date1value) + 18000000;
+
+								var date2value = document.getElementById("date2").value;
+								var second_date = Date.parse(date2value) + 104399000;
+									
+								if (isNaN(first_date)){
+						    		first_date = 0;
+						    	}
+						    		
+						    	if (isNaN(second_date)){
+						    		second_date = 863000000000000;
+						    	}
+																
+							    getAssignments(assignmentURL, CourseID, first_date, second_date);
+								$("#test").html("");
+							});
+
+							
+		    				function getAssignments(y, z, date1, date2){    					
+		    					jQuery.ajax({
+				    				type: 'GET',
+				    				url: y,
+				       				dataType: 'text',
+				       				changeOrigin: true,
+				    				headers: {
+				    					"proxy": "lcp --proxyUrl https://www.canvas.instructure.com",
+				    					'Authorization': 'Bearer ' + userToken,
+				              			'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE',
+				              			'Access-Control-Allow-Headers': 'x-requested-with',
+				              			'Content-Type': 'text/plain',
+				              			
+				          			},			
+				    				success: function(assignmentData){
+				    					var dataForAssignments = JSON.parse(assignmentData);
+				    					
+				    					let allAssignments = [];
+				    					
+										dataForAssignments.forEach((group) => {
+										    group.assignments.forEach((assign) => {
+										        allAssignments.push(assign);
+										    });
+										});
+										
+										allAssignments.sort((a, b) => {return new Date(a.due_at) - new Date(b.due_at)});
+										
+										allAssignments.forEach((assign) => {
+											var assignments = assign.name;
+											
+											var dueDates = new Date(assign.due_at);
+											var formatAssignDate = Date.parse(dueDates);
+											//console.log(formatAssignDate);
+											var isQuiz = assign.is_quiz_assignment;
+											var isSubmit = assign.has_submitted_submissions;
+											var isExternal = assign.submission_types;
+											var courseIDs = z.slice(7);
+											var assignIDs = JSON.stringify(assign.id);
+											var assignSlice = assignIDs.slice(7);
+											var link = "https://elearning.salemstate.edu/courses/" +z +"/assignments/" +assignIDs;
+
+											if (formatAssignDate >= date1 && formatAssignDate <= date2){
+												if (!isQuiz){
+												    $("#test").append('<p><a href="' + link + '" target="_blank" class="options"'+'>' + assignments + '</a></p>');
+												    if (dueDates.getTime() == 0){
+												    	$("#test").append('<p>No due date</p>');
+													}
+													else{
+												    	$("#test").append('<p>Due: '+dueDates.toLocaleString('en-US', { timeZone: 'America/New_York' })+'</p>');
+												    }
+												    if (isSubmit){
+												    	if(assign.submission_types[0] == "external_tool"){
+													    	$("#test").append('<p style="color: blue">Check canvas for submission. </p><br />');
+													    }
+													    else{
+													    	$("#test").append('<p style="color: green">Submitted! <img src="../Images/submit.png" width="22" "height=22" /></p><br />'); 
+													    }
+													}
+												    else{
+												    	$("#test").append('<p style="color: red">Not submitted <img src="../Images/notsubmitted.png" width="22" "height=22" /></p><br />');
+												    }
+												}
+											}
+										});
+									    
+									},
+				    			error: function() { alert('This course has no assignments at the moment, please check again later.'); }
 	
+				    			});	
+							}
+				
+		       				},
+		    				error: function() { alert('Error'); }
+						});	
+					
+				}	
+							
+				getCourses();
+								
+	    	</script>
+	
+	<br /><br /><div id="test"></div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-</article><!-- #post-72 -->
+</article><!-- #post-18 -->
 
 				</div>
 				<!-- Content end-->
@@ -193,7 +364,7 @@ function googleTranslateElementInit() {
 
 
 
-<footer style="position: fixed; bottom: 0; width: 100%;">
+<footer style="bottom: 0; width: 100%;">
 
 <!-- copy-wrapper -->
 	<div class="copy-wrapper">
